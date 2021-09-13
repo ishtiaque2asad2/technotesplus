@@ -1,0 +1,21 @@
+Users Can:
+*) Take Note
+*) Edit Note
+*) Delete Note
+*) Search Note
+*) Share Notes(View Only, users will be notified via email)
+*) Need discovery of users for sharing notes
+*) Notes can contain emojis, html formatted texts
+*) Track of shared notes (i.e if the note is viewed then it should show viewed)
+*) If the shared not is NOT viewed then a reminder email will be send
+*) Notes can have tags(No private tags)
+
+Models Needed:
+*) Note
+*) Tags
+*) Email
+
+API Needed:
+*) Fetch All User Notes
+*) Fetch All Shared Notes
+*)
