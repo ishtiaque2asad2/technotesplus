@@ -53,6 +53,7 @@ class Note(BaseModel):
 class SharedNote(BaseModel):
     shared_with = models.ForeignKey(get_user_model(), null=True, on_delete=models.SET_NULL,
                                     related_name='sharednote_shared_with')
+    unique_id = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)
     read_datetime = models.DateTimeField(null=True, blank=True)
     note = models.ForeignKey(Note, on_delete=models.CASCADE)
