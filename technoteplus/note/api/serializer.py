@@ -51,6 +51,18 @@ class NoteCreateUpdateSerializer(BaseMixin, serializers.ModelSerializer):
 
 
 class SharedNoteSerializer(serializers.ModelSerializer):
+    note_title = serializers.SerializerMethodField()
+    shared_with_name = serializers.SerializerMethodField()
+    shared_by = serializers.SerializerMethodField()
+
+    def get_shared_by(self,obj):
+        return obj.created_by.first_name+" "+obj.created_by.last_name
+
+    def get_shared_with_name(self,obj):
+        return obj.shared_with.first_name+" "+obj.shared_with.last_name
+
+    def get_note_title(self,obj):
+        return obj.note.title
     class Meta:
         model = SharedNote
-        fields = '__all__'
+        fields = ['shared_with_name','unique_id','is_read','read_datetime',"note_title","shared_by"]
