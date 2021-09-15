@@ -4,10 +4,11 @@ from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from rest_framework import generics
 from rest_framework import serializers as rest_serializers
+from rest_framework.generics import ListAPIView
 from rest_framework.views import APIView
 
-from .serializer import NoteCreateUpdateSerializer, NoteListRetrieveSerializer, SharedNoteSerializer
-from ..models import Note, SharedNote
+from .serializer import NoteCreateUpdateSerializer, NoteListRetrieveSerializer, SharedNoteSerializer, TagSerializer
+from ..models import Note, SharedNote, Tag
 
 
 class NoteListCreateAPIView(generics.ListCreateAPIView):
@@ -130,3 +131,7 @@ class DetailSharedNoteByAPIView(APIView):
             data = {'status': 'error', 'message': 'Note not found'}
             return JsonResponse(data, safe=False)
 
+
+class TagListViewAPI(ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer

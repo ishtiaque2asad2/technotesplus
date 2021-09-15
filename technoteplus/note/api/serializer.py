@@ -66,3 +66,4 @@ class SharedNoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = SharedNote
         fields = ['shared_with_name','unique_id','is_read','read_datetime',"note_title","shared_by"]
+

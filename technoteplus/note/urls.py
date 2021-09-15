@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .api.views import NoteListCreateAPIView, NoteRetrieveUpdateAPIViewAPIView, GetShareNoteSharedByAPIView, \
-    GetShareNoteWithMeAPIView,CreateSharNoteAPIView,DetailSharedNoteWithAPIView,DetailSharedNoteByAPIView
+    GetShareNoteWithMeAPIView, CreateSharNoteAPIView, DetailSharedNoteWithAPIView, DetailSharedNoteByAPIView, \
+    TagListViewAPI
 
 urlpatterns = [
     path('sharedwithme/api/v1/<str:unique_id>/', DetailSharedNoteWithAPIView.as_view()),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('share/api/v1/', CreateSharNoteAPIView.as_view()),
     path('sharedbyme/api/v1/', GetShareNoteSharedByAPIView.as_view()),
     path('sharedwithme/api/v1/', GetShareNoteWithMeAPIView.as_view()),
+    path('tags/api/v1/', TagListViewAPI.as_view()),
 
 
 ]
